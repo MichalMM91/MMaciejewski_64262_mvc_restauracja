@@ -1,1 +1,127 @@
-# MMaciejewski_64262_mvc_restauracja_30012023
+# Dokumentacja projektu - MMaciejewski_64262_mvc_restauracja_30012023
+
+<h2>O projekcie</h1>
+
+>Projekt zaliczeniowy z przedmiotu ASP.NET wykonany w technologii MVC
+
+<h2>Skąd wybór tej technogogii?</h2>
+
+>Technologia MCV (Model-View-Controller) pozwala na logiczne rozdzielenie modelu, widoków i kontrolerów. Dało mi to elastyczność w dodawaniu kolejnych komponentów. Ich współpraca wydaje się przemyślana i pozwoliła w szybki sposób uzupełnić projekt o panel administracyjny menu, szerzej opisany w części technicznej projektu. Dodatkowo, rozszerzenie projektu o funkcjonalność filtrowania menu per Dieta nie sprawiło problemu technicznego i zostało łatwo zrealizowane za pośrednictwem dodania modelu ModelWyboruDiety i rozszerzenia widoku Dania o interpretację zmiennej searchString.
+
+<h2>Specyfikacja biznesowa</h2>
+
+>Projekt przedstawia stronę internetową wyimaginowanej restauracji yum-yum w Gdańsku. Podczas tworzenia treści inspirowałem się materiałami dostępnymi na istniejących witrynach, które wymieniłem w zakładce "Webmaster" strony.
+
+<h3>Korzystanie ze strony z perspektywy klienta restauracji</h3>
+
+<ol>
+<li><b>Zakładka "O nas"</b> - Użytkownik będący klientem restauracji uruchamiając stronę główną zostaje przeniesiony do ekranu powitalnego - zakładki "O nas"</li>
+<br>
+
+![image](https://user-images.githubusercontent.com/48070450/215592995-3ab6ad30-2ef6-4324-84e1-5081135e750c.png)
+
+<br>
+<li><b>Zakładka "Menu"</b> - Po uruchomieniu zakładki "Menu" otwarta zostaje tabela z Menu restauracji. Dostępne funkcjonalnosći:
+  <ul>
+  <li>filtrowanie po nazwie dania</li>
+  <li>wyświetlenie dań wyfiltrowanych per dieta (dostępne diety, wg inicjalnej migracji zasilającej: Vege, Nie-vege oraz wszystkie)</li>
+  <li>wyświetlenie szczegółów każdego z dań</li>
+  </ul>
+  </ul>
+ <br>
+ 
+ ![image](https://user-images.githubusercontent.com/48070450/215593448-4f91a563-6648-4228-a370-92601d186576.png)
+ 
+ <br>
+ 
+ ![image](https://user-images.githubusercontent.com/48070450/215600981-5e731dee-0aef-4758-a99d-4ff4dfce5683.png)
+
+ 
+ <br>
+ <br>
+ 
+ <li><b>Zakładka "Galeria"</b> - Po uruchomieniu zakładki "Galeria" użytkownik może przeglądać zdjęcia restauracji wewnątrz i na zewnątrz</li>
+ <br>
+ 
+ ![image](https://user-images.githubusercontent.com/48070450/215593536-ec8ad048-0ddd-4d97-b073-f1009be959e0.png)
+
+<br>
+ <li><b>Zakładka "Kontakt"</b> -Po uruchomieniu zakładki "Kontakt" użytkownik może poznać lokalizację restauracji, dane teleadresowe, informacje o menedżerze i informacje w jakich sprawach kontaktować się z menedżerem. Dodatkowo, jest możliwość uruchomienia stron restauracji na znanych serwisach społecznościowych (Restauracja nie istnieje, toteż przekierowanie jest ustawione na stronę główną serwisu)</li>
+<br>
+
+![image](https://user-images.githubusercontent.com/48070450/215593664-6467050e-c42d-4ff7-93d5-8edbbb23dc23.png)
+
+<br>
+<li><b>Zakładka "Webmaster"</b> -Po uruchomieniu zakładki "Webmaster" użytkownik może poznać dane twórcy projektu i inspiracje. Uwaga: w stopce strony znajduje się hiperłącze do tej zakładki</li>
+<br>
+
+![image](https://user-images.githubusercontent.com/48070450/215593817-91b51cb6-0937-48fd-b926-cb9bf2e882b3.png)
+
+<br>
+</ol>
+
+<h3>Korzystanie ze strony z perspektywy menedżera restauracji / administratora</h3>
+
+>Oprócz funkcjonalności opisanych w powyższym rozdziale "Korzystanie ze strony z perspektywy klienta restauracji" (dostępnych dla użytkownika - Klienta restauracji), Administrator / Menedżer restauracji posiada specjalny, tzw. "ukryty" widok. Ukryty - bo niedostępny jako przycisk zakładki w pasku nawigacyjnym, dostęny jedynie jeśli zna się prawidłowy adres URL. Na tym etapie projektu pominięto kwestie security i logowanie. 
+
+>Dedykowany widok administracyjny dostępny jest po dopisaniu do adresu strony startowej frazy <b><i>/Admin</i></b>. Przykład:<br>
+<i>https://localhost:7110/Admin</i>
+<br>
+
+![image](https://user-images.githubusercontent.com/48070450/215592003-333947b6-3834-489e-a2c2-1b2e605ad398.png)
+
+<br>
+W ramach Panelu administracyjnego, administrator/menedżer ma możliwość:
+<ul>
+<li>Dodawania nowego wpisu</li>
+<li>Usuwania istniejącego wpisu</li>
+<li>Edycji istniejącego wpisu</li>
+<li>Wyświetlenia szczegółów istniejącego wpisu</li>
+<li>Podstawowego filtrowania po nazwie dania (pominięto zaawansowane funkcjonalność filtrowania po dietach - jako nadmiarową dla administratora Menu)</li>
+</ul>
+
+
+![image](https://user-images.githubusercontent.com/48070450/215593986-6d8b6d55-e1e4-4c0c-a044-9a41a18377e9.png)
+
+
+<h2>Specyfikacja techniczna</h2>
+
+<h4>Język aplikacji</h4>
+
+Aplikacja jest dostępna w jęz. polskim. Nazwy elementów strony zostały odpowiednio przetłumaczone.
+
+<h4>Obrazki</h4>
+
+Dostępne w lokalizacji <i>/wwwroot/img</i>
+
+<h4>Modele</h4>
+
+<ul>
+<li>Danie - deklaracja zmiennych dań wchodzących w skład menu, wraz z customowymi nazwami kolumn</li>
+<li>ErrorViewModel - domyślny</li>
+<li>ErrorViewModel - default</li>
+<li>ModelWyboruDiety - model pozwalający na filtrowanie listy menu per Dieta</li>
+<li>ZasilenieDanymi - tu zdefiniowałem inicjalną migrację zasilającą danymi po skompilowaniu, w sytuacji gdy wszystkie pozycje z Menu zostaną usunięte</li>
+</ul>
+
+<h4>Widoki</h4>
+
+<ul>
+<li>Folder Admin - składa się z widoków odpowiadających za panel administracyjny (index) oraz poszczególne widoki dodawania, edycji, usunięcia i szczegółów wpisu </li>
+<li>Folder Dania - składa się z widoków odpowiadających za panel menu (index) oraz widok szczegółów wpisu </li>
+<li>Folder Home - składa się z widoków odpowiadających za następujące zakładki menu: O nas (index), Galeria, Kontakt i Webmaster.</li>
+<li>Folder Shared - m.in. sterowanie podstawowym layoutem strony w widoku _Layout</li>
+</ul>
+
+<h4>Kontrolery</h4>
+
+<ul>
+<li>AdminController - Kontroler dla widoku Admin</li>
+<li>DaniaController - Kontroler dla widoku Dania wraz z mechaniką filtrowania per Dieta</li>
+<li>HomeController - Kontroler dla widoków widoku Home</li>
+</ul>
+
+
+<h4>Migrations</h4>
+
+Zawiera listę dotychczasowych migracji
