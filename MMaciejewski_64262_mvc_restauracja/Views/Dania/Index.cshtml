@@ -1,0 +1,71 @@
+﻿
+@model MMaciejewski_64262_mvc_restauracja.Models.ModelWyboruDiety
+@{
+    ViewData["Title"] = "Menu";
+}
+<div class="text-center">
+    <h1 class="display-4">Menu restauracji</h1>
+    <br />
+    <p>
+        Zamówienia prosimy składać pod numerami telefonu <a asp-controller="Home" asp-action="Kontakt">(58) 999-888-777</a> lub <a asp-controller="Home" asp-action="Kontakt">987-987-987</a>
+    </p>
+</div>
+<div class="container">
+<form asp-controller="Dania" asp-action="Index" method="get">
+    <p>
+        <select asp-for="DietaDania" asp-items="Model.Diety">
+            <option value="">Wszystkie</option>
+        </select>
+
+        Nazwa: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Zastosuj" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dania[0].Nazwa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dania[0].Kategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dania[0].Dieta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dania[0].Ilość)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dania[0].Cena)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Dania) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dieta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ilość)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,53 @@
+﻿@model MMaciejewski_64262_mvc_restauracja.Models.Danie
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Dodaj</h1>
+
+<h4>Danie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nazwa" class="control-label"></label>
+                <input asp-for="Nazwa" class="form-control" />
+                <span asp-validation-for="Nazwa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kategoria" class="control-label"></label>
+                <input asp-for="Kategoria" class="form-control" />
+                <span asp-validation-for="Kategoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dieta" class="control-label"></label>
+                <input asp-for="Dieta" class="form-control" />
+                <span asp-validation-for="Dieta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ilość" class="control-label"></label>
+                <input asp-for="Ilość" class="form-control" />
+                <span asp-validation-for="Ilość" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cena" class="control-label"></label>
+                <input asp-for="Cena" class="form-control" />
+                <span asp-validation-for="Cena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Powrót</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
