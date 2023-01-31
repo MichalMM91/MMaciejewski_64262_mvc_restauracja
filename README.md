@@ -2,7 +2,7 @@
 
 <h2>O projekcie</h1>
 
->Projekt zaliczeniowy z przedmiotu ASP.NET wykonany w technologii MVC
+>Projekt zaliczeniowy z przedmiotu ASP.NET 6.0 wykonany w technologii MVC
 
 <h2>Skąd wybór tej technogogii?</h2>
 
